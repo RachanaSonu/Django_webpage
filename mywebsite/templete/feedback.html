@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .table-bordered {
+      border: 1px dotted #000;  /* 1px dotted border with black color */
+  }
+</style>
+<body>
+    <!-- myapp/templates/myapp/feedback.html -->
+<!-- myapp/templates/myapp/feedback.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="max-width: 600px; margin: auto;"> <!-- Added a container for better styling -->
+
+    <h2 style="text-align: center;">Feedback Form</h2>
+
+    <form method="post" action="{% url 'feed_add' %}" style="margin-top: 20px;">
+      {% csrf_token %}
+
+      <div style="margin-bottom: 15px;">
+        <label for="id_name" style="display: block; font-weight: bold;">Your Name:</label>
+        <input type="text" name="name" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        <!-- {{ form.name }} --> <!-- Commented out since you are using plain input -->
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="id_rating" style="display: block; font-weight: bold;">Rating (1-5):</label>
+        <input type="number" name="rating" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        <!-- {{ form.rating }} -->
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="id_comment" style="display: block; font-weight: bold;">Comment:</label>
+        <textarea name="comment" style="width: 100%; height: 100px; padding: 8px; box-sizing: border-box;"></textarea>
+        <!-- {{ form.comment }} -->
+      </div>
+
+      <a href="{% url 'feed_add' %}" style="text-decoration: none;">
+      <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    </a>
+      <a href="{% url 'feedback' %}" style="text-decoration: none;">
+        <button type="button" style="background-color: #808080; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Cancel</button>
+      </a>
+    </form><br>
+    <table width='100%' class="table table-stripped table-bordered" border="solid 1px">
+      <thead class="table-info">
+          <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Comment</th>
+          </tr>
+      </thead>
+      <tbody class="table-secondary">
+          {% for p in data %}
+          <tr>
+              <td>{{ p.name }}</td>
+              <td>{{ p.rating }}</td>
+              <td>{{ p.comment }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+    <br>
+
+    
+
+  </div>
+{% endblock %}
+
+</body>
+</html>

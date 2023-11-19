@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        /* Container styles for the two sections */
+        #contact-section {
+            overflow: hidden; /* Clear floats */
+        }
+
+        /* Styles for the contact form and information container */
+        #contact-info-form-container {
+            width: 50%;
+            float: left;
+        }
+
+        /* Styles for the map container */
+        #map-container {
+            width: 40%;
+            float: left;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}Contact Us{% endblock %}
+
+    {% block content %}
+        <h1>Contact Us</h1>
+
+        <div id="contact-section">
+            <div id="contact-info-form-container">
+                <form action="" >{% csrf_token %} 
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="query">Query:</label>
+                    <textarea id="query" name="query" rows="4" required></textarea><br>
+
+                    <button type="submit">Submit</button>
+                </form>
+
+                <h2>Contact Information</h2>
+                <p>
+                    <strong>Company Name:</strong>Python Company<br>
+                    <strong>Address:</strong> Bengaluru<br>
+                    <strong>Mobile:</strong> 9886926778<br>
+                    <!-- Add other contact information as needed -->
+                </p>
+            </div>
+
+            <div id="map-container">
+                <!-- Add your map code or embed here -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.7417204308126!2d77.55306457418337!3d12.988364487328505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8cacdde0c3%3A0xe2047cf1c6daffee!2sApponix%20Academy!5e0!3m2!1sen!2sin!4v1700227355714!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

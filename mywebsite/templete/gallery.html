@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Display four images in each row */
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px; /* Set a fixed height for equal-sized images */
+            object-fit: cover;
+            border-radius: 50px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px dashed #333; /* Color of the dots */
+    border-radius: 50px; /* Adjust the radius to control the size of the dots */
+    pointer-events: none; /* Ensure the dots don't interfere with hover events */
+}
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+
+            .button {
+        display: inline-block;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    /* Define different styles for Update and Delete buttons */
+    .update-button {
+        background-color: #4CAF50; /* Yellow color for Update */
+    }
+        
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}Gallery{% endblock %}
+
+    {% block content %}
+        <center><h1>Our Gallery</h1>
+            </center>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                {% load static %}
+                <img src="{% static 'images/theju.jpg' %}" alt="Image 1">
+                <div class="overlay">
+                    <p>Name: Theju</p>
+                    <p>designation: Student.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                {% load static %}
+                <img src="{% static 'images/rachana.jpg' %}" alt="Image 1">
+                <div class="overlay">
+                    <p>Name: Rachana.P</p>
+                    <p>designation: Student.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                {% load static %}
+                <img src="{% static 'images/avi.jpg' %}" alt="Image 1">
+                <div class="overlay">
+                    <p>Name: Avinash</p>
+                    <p>designation: Student.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                {% load static %}
+                <img src="{% static 'images/shankar.jpg' %}" alt="Image 1">
+                <div class="overlay">
+                    <p>Name: Shankar</p>
+                    <p>designation: Student.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                {% load static %}
+                <img src="{% static 'images/group.jpg' %}" alt="Image 1">
+                <div class="overlay">
+                    <p>Name: group</p>
+                    <p>designation: Student.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                {% load static %}
+                <img src="{% static 'images/shiva.jpg' %}" alt="Image 1">
+                <div class="overlay">
+                    <p>Name: Shiva</p>
+                    <p>designation: Student.</p>
+                </div>
+            </div>
+            <br>
+
+            
+
+            
+
+
+            <!-- <form method="post" enctype="multipart/form-data" id="uploadForm" style="display: none;">
+                {% csrf_token %}
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Upload Image</button>
+            </form> -->
+
+
+            <!-- Add more gallery items as needed -->
+        </div><center>
+        <button type="submit" class="button update-button" >Upload Image</button>
+            <input type="file" name="image" accept="image/*" required class="button update-button" ></center><br>
+    {% endblock %}
+</body>
+</html>

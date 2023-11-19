@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Change the font style here */
+            line-height: 1.6; /* Adjust the line height for better readability */
+            margin: 20px; /* Add some margin for better spacing */
+        }
+
+        h1, h2, h3 {
+            color: #333; /* Change the color of headings if needed */
+        }
+
+        p {
+            margin-bottom: 20px; /* Add space below paragraphs */
+        }
+
+        ul {
+            margin-bottom: 20px; /* Add space below unordered lists */
+        }
+    </style>
+</head>
+
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}About Us{% endblock %}
+
+    {% block content %}
+    <!-- Content of your about page goes here -->
+    <h1>Welcome to Python Company - Empowering Coders Since 2022</h1>
+    <p>At [Company Name], we are more than just a coding institute; we are the architects of future tech leaders.
+        Established in 2022, our startup has been on a mission to empower individuals with the skills and knowledge
+        needed to thrive in the rapidly evolving world of technology.</p>
+
+    <h1>Why Choose Python Company?</h1>
+    <ul>
+        <li> <strong>Learning Experience:</strong> We offer a diverse range of coding languages and technologies, ensuring that
+            our students are equipped with a well-rounded skill set. From Java to DevOps, our curriculum is designed to meet industry demands.</li>
+
+        <li><strong>Expert Instructors:</strong> Learn from industry experts who are passionate about sharing their knowledge. Our
+            instructors bring real-world experience to the classroom, providing valuable insights and practical skills.</li>
+
+        <li><strong>Hands-On Projects:</strong> We believe in learning by doing. Our hands-on projects and real-world applications allow
+            students to apply their knowledge, reinforcing concepts and preparing them for actual industry scenarios.</li>
+
+        <li><strong>Community and Networking:</strong> Join a vibrant community of like-minded individuals. Connect with fellow learners,
+            share ideas, and build a network that extends beyond the classroom.</li>
+
+        <li><strong>Flexibility:</strong> We understand the importance of flexibility in learning. Our courses are designed to accommodate various schedules, making it convenient for working professionals and students alike.</li>
+    </ul>
+
+    <h1>Courses Offered:</h1>
+    <ul>
+        <li>Java</li>
+        <li>Python</li>
+        <li>DevOps</li>
+        <li>Cloud</li>
+        <li>Database</li>
+        <li>So On..</li>
+    </ul>
+
+    <h2>Future-Ready Skills, Today:</h2>
+    <p>Technology is evolving, and so are we. Python Company is committed to keeping our curriculum up-to-date with the latest industry trends, ensuring that our students graduate with skills that are relevant and in-demand.
+
+        Embark on your coding journey with Python Company. Let's code the future together!</p>
+
+    {% endblock %}
+</body>
+
+</html>
