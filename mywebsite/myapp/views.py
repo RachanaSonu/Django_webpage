@@ -45,17 +45,17 @@ def delete_data(request,id):
     data.delete()
     return redirect(services)
 
-def gallery(request):
-    if request.method == 'POST':
-        image_form = Image(request.POST, request.FILES)
-        if image_form.is_valid():
-            image_form.save()
-            return redirect('gallery')  # Redirect to the same page after successful upload
-    else:
-        image_form = Image()
+# def gallery(request):
+#     if request.method == 'POST':
+#         image_form = Image(request.POST, request.FILES)
+#         if image_form.is_valid():
+#             image_form.save()
+#             return redirect('gallery')  # Redirect to the same page after successful upload
+#     else:
+#         image_form = Image()
 
-    images = Image.objects.all()  # Replace YourImageModel with your actual model
-    return render(request, 'gallery.html', {'image_form': image_form, 'images': images})
+#     images = Image.objects.all()  # Replace YourImageModel with your actual model
+#     return render(request, 'gallery.html', {'image_form': image_form, 'images': images})
 
 def contact(request):
     return render(request, 'contact.html')
@@ -81,5 +81,42 @@ def feed_add(request):
         return render(request, 'feedback.html', {'data': data})
 
     return render(request, 'feedback.html')
-    
+
+# from .form import UserImage  
+# from .models import Image  
+  
+# def image_request(request):  
+#     if request.method == 'POST':  
+#         form = UserImage(request.POST, request.FILES)  
+#         if form.is_valid():  
+#             form.save()  
+  
+#             # Getting the current instance object to display in the template  
+#             img_object = form.instance  
+              
+#             return render(request, 'gallery.html', {'form': form, 'img_obj': img_object})  
+#     else:  
+#         form = UserImage()  
+  
+#     return render(request, 'gallery.html', {'form': form})  
+
+from .form import ImageForm
+from .models import Image
+
+def image_request(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            img_obj = form.save()
+            return render(request, 'gallery.html', {'img_obj': img_obj, 'form': form})
+        else:
+            print(form.errors)  # Check the console or logs for validation errors
+    else:
+        form = ImageForm()
+        img1=Image.objects.all()
+        # print(img1)
+
+    return render(request, 'gallery.html', {'form': form,'img1':img1})
+
+
     

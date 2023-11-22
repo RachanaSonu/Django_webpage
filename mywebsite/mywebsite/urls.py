@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from myapp import views
+from django.conf import settings  
+from django.conf.urls.static import static  
+
+  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('myapp.urls')),
-     path('home/', views.home, name='home'),
+     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
 
     path('services/', views.services, name='services'),
@@ -31,8 +35,11 @@ urlpatterns = [
     # path('save_update_data/<id>',views.save_update_data,name='save_update_data'),
     path('delete_data/<id>',views.delete_data,name='delete_data'),
     path('contact/', views.contact, name='contact'),
-    path('gallery/', views.gallery, name='gallery'),
+    # path('gallery/', views.gallery, name='gallery'),
     path('feedback/', views.feedback, name='feedback'),
     path('feed_add/',views.feed_add,name='feed_add'),
+    path('add_gallery/', views.image_request, name = "image-request")
     
 ]
+if settings.DEBUG:  
+        urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  
