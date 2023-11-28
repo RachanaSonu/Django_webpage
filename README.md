@@ -1,2 +1,2 @@
 # Django_webpage
-Demo: RachanaP.pythonanywhere.com
+Demo: http://RachanaP.pythonanywhere.com
