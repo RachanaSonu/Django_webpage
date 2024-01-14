@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-lpwmm@*h*@i((nty1puvwew3@n^5v(w&np1ccvz*46j@o6ro2f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.kalavida.com']
 
 # Base url to serve media files  
 MEDIA_URL = '/media/'  
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
+    'myapp',
+    'sslserver'
 ]
 
 MIDDLEWARE = [
@@ -89,10 +90,13 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'awseb-e-jepfep3eac-stack-awsebrdsdatabase-ygu95rattpie.c12oww6eo93a.us-east-1.rds.amazonaws.com',
         'NAME': 'web',
-        'USER': 'root',
-        'PASSWORD': 'admin',
+        # 'USER': 'root',
+        # 'PASSWORD': 'admin',
+        'USER': 'ebroot',
+        'PASSWORD': 'Pass1234',
         'HOST':'localhost',
         'PORT':'3306',
     }
